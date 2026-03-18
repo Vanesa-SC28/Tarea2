@@ -34,7 +34,7 @@
     /* Colores principales */
     /* ERROR 1: El color primario no es el correcto, debería ser un cyan vibrante
        PISTA: Revisa el valor hexadecimal, el original era un tono cyan (#0ea5e9) */
-    --color-primary: #0ea5e9;       /* Cyan vibrante */ /* CORRECION 1*/
+    --color-primary: #0ea5e9;       /* Cyan vibrante */ /* CORRECCION 1*/
     --color-primary-dark: #0284c7;
     --color-primary-light: #38bdf8;
     --color-secondary: #8b5cf6;         /* Violeta eléctrico */
@@ -102,7 +102,7 @@
     /* Z-index */
     /* ERROR 2: El header queda detrás del contenido al hacer scroll
        PISTA: El valor del z-index es muy bajo para un elemento fijo */
-    --z-fixed: 100; /*CORRECION 2*/
+    --z-fixed: 100; /*CORRECCION 2*/
     --z-modal: 1000;
     
     /* Header */
@@ -163,7 +163,7 @@ button {
     /* ERROR 3: El contenido no está centrado en la página
        PISTA: Falta una propiedad que centra elementos de bloque horizontalmente */
     padding: 0 var(--spacing-lg);
-    margin: 0 auto; /*CORRECION 3*/
+    margin: 0 auto; /*CORRECCION 3*/
 }
 
 .section {
@@ -215,7 +215,7 @@ button {
        SOLUCIÓN: Falta la propiedad transition para animar los cambios de estado
        Agregar: transition: all var(--transition-base);
        Esto hace que el hover y otros estados se animen suavemente */
-    transition: all var(--transition-base); /*CORRECION 4*/
+    transition: all var(--transition-base); /*CORRECCION 4*/
     cursor: pointer;
     white-space: nowrap;
 }
@@ -231,7 +231,7 @@ button {
 .btn--primary:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-xl), 0 0 30px rgba(14, 165, 233, 0.4);
-    box-shadow: var(--shadow-md); /*CORRECION 5*/
+    box-shadow: var(--shadow-md); /*CORRECCION 5*/
 }
 
 .btn--outline {
@@ -286,7 +286,7 @@ button {
        PISTA: Falta una propiedad de flexbox que alinea items en el eje transversal */
     justify-content: space-between;
     height: 100%;
-    align-items: center; /*CORRECION 6*/
+    align-items: center; /*CORRECCION 6*/
 }
 
 .nav__logo {
@@ -335,7 +335,7 @@ button {
 .nav__link:hover,
 .nav__link--active {
     color: var(--color-text-primary);
-    transition: width var(--transition-base); /*CORRECION 7*/
+    transition: width var(--transition-base); /*CORRECCION 7*/
 }
 
 .nav__link:hover::after,
@@ -434,7 +434,7 @@ button {
     /* ERROR 8: Los botones del hero están pegados sin espacio entre ellos
        PISTA: Falta la propiedad que define el espacio entre elementos flex */
     flex-wrap: wrap;
-    gap: var(--spacing-md); /*CORRECION 8*/
+    gap: var(--spacing-md); /*CORRECCION 8*/
 }
 
 .hero__image {
@@ -455,6 +455,7 @@ button {
     /* ERROR 9: El blob en el hero no tiene la animación de forma dinámica
        PISTA: Falta la propiedad animation que referencia a blob-animation */
     position: relative;
+    animation: blob-animation 8s linear infinite; /*CORRECCION 9*/
 }
 
 @keyframes blob-animation {
@@ -556,6 +557,7 @@ button {
        PISTA: Falta la propiedad de CSS Grid que define las columnas */
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-3xl);
+    grid-template-columns: repeat(3, 1fr); /*CORRECCION 10*/
 }
 
 .interest__card {
