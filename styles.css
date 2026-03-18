@@ -1026,6 +1026,7 @@ button {
     border-radius: var(--border-radius-xl);
     padding: var(--spacing-2xl);
     text-align: center;
+    background: var(--gradient-primary); /*CORRECCION 18*/
 }
 
 .contact__card-title {
