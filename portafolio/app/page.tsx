@@ -4,6 +4,7 @@ import Inicio from "./Components/Inicio/Inicio";
 import Interests from "./Components/Interests/Interests";
 import Projects from "./Components/Projects/Projects";
 import CV from "./Components/CV/CV";
+import Contact from "./Components/Contact/Contact";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Interests />
       <Projects />
       <CV /> 
+      <Contact />
     </>
   );
 }
