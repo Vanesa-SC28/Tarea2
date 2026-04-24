@@ -1,0 +1,272 @@
+/* ========== INTERESTS SECTION ========== */
+.interests {
+    background: var(--color-bg-secondary);
+}
+
+.interests__grid {
+    display: grid;
+    /* ERROR 10: Las cards de intereses no se muestran en 3 columnas, están apiladas
+       PISTA: Falta la propiedad de CSS Grid que define las columnas */
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+    grid-template-columns: repeat(3, 1fr); /*CORRECCION 10*/
+}
+
+.interest__card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-bg-tertiary);
+    /* ERROR 11: Las cards de intereses tienen esquinas puntiagudas en vez de redondeadas
+       PISTA: Falta la propiedad border-radius */
+    padding: var(--spacing-xl);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-xl); /*CORRECCION 11*/
+}
+
+.interest__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform var(--transition-base); /*CORRECCION 12*/
+    /* ERROR 12 (AVANZADO): La línea superior de las cards aparece instantáneamente sin animación
+       SOLUCIÓN: Falta la transición para la propiedad transform
+       Agregar: transition: transform var(--transition-base);
+       El pseudoelemento ::before necesita su propia transición para animar el scaleX */
+}
+
+.interest__card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+}
+
+.interest__card:hover::before {
+    transform: scaleX(1);
+}
+
+.card__icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(14, 165, 233, 0.1);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2xl);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+    transition: all var(--transition-base);
+}
+
+.interest__card:hover .card__icon {
+    background: var(--gradient-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.card__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.card__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+}
+
+.card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.tag {
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    color: var(--color-primary);
+    background: rgba(14, 165, 233, 0.1);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-full);
+}
+/* Subjects */
+.subjects {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-bg-tertiary);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-xl);
+    text-align: center;
+}
+
+.subjects__title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.subjects__title i {
+    color: var(--color-secondary);
+}
+
+.subjects__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.subject {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-tertiary);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    transition: all var(--transition-base);
+}
+
+.subject:hover {
+    background: var(--gradient-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ========== CV SECTION ========== */
+.cv {
+    background: var(--color-bg-primary);
+    position: relative;
+}
+
+.cv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 0% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 100% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.cv__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.cv__description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.8;
+}
+
+.cv__buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.cv__social-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.cv__social-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.social__card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-bg-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    transition: all var(--transition-base);
+}
+
+.social__card:hover {
+    transform: translateX(10px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-lg);
+}
+
+.social__icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-xl);
+}
+
+.social__icon--linkedin {
+    background: rgba(0, 119, 181, 0.2);
+    color: #0077b5;
+}
+
+/* ERROR 13 (AVANZADO): El icono de GitHub no tiene color visible
+   SOLUCIÓN: Falta la propiedad color para el texto/icono
+   Agregar: color: var(--color-text-primary);
+   Los selectores específicos como --github necesitan definir su propio color */
+.social__icon--github {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary); /*CORRECCION 13*/
+}
+
+.social__icon--email {
+    background: rgba(14, 165, 233, 0.2);
+    color: var(--color-primary);
+}
+
+.social__info {
+    flex: 1;
+}
+
+.social__name {
+    display: block;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.social__user {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.social__arrow {
+    color: var(--color-text-muted);
+    transition: all var(--transition-base);
+}
+
+.social__card:hover .social__arrow {
+    color: var(--color-primary);
+    transform: translateX(5px);
+}
